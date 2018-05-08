@@ -71,7 +71,7 @@ var MoviePoster = React.createClass({
 	}
 });
 
-var MoviesElements = React.createClass({
+var Movie = React.createClass({
 	propTypes: {
 		movies: React.PropTypes.object.isRequired,
 	},
@@ -93,15 +93,17 @@ var MoviesList = React.createClass({
 
 	render: function() {
 		var moviesElements = this.props.movies.map(function(movie) {
-			return React.createElement(MoviesElements, {key: movie.id, movie: movie})
+			return React.createElement(Movie, {key: movie.id, movie: movies})
 		});
-		return React.createElement('div', {},
-				React.createElement('h1', {}, 'List of movies'),
-				React.createElement('ul', {}, moviesElements)
-			)
+		return (
+			React.createElement('ul', {}, moviesElements)
+		);
 	}
 });
 
-var element = React.createElement(MoviesList, {movies});
+var element = React.createElement('div', {},
+				React.createElement('h1', {}, 'List of movies'),
+				React.createElement(MoviesList, {})
+			);
 
 ReactDOM.render(element, document.getElementById('app'));
