@@ -67,7 +67,9 @@ var MoviePoster = React.createClass({
 	},
 
 	render: function() {
-		React.createElement('img', {src: this.props.poster})
+		return (
+			React.createElement('img', {src: this.props.poster})
+		)
 	}
 });
 
@@ -77,10 +79,12 @@ var Movie = React.createClass({
 	},
 
 	render: function() {
-		React.createElement('li', {}, 
-			React.createElement(MovieTitle, {title: this.props.movies.title}),
-			React.createElement(MovieDescription, {desc: this.props.movies.desc}),
-			React.createElement(MoviePoster, {poster: this.props.movies.poster})
+		return (
+			React.createElement('li', {}, 
+				React.createElement(MovieTitle, {title: this.props.movies.title}),
+				React.createElement(MovieDescription, {desc: this.props.movies.desc}),
+				React.createElement(MoviePoster, {poster: this.props.movies.poster})
+		)
 		)
 	}
 
